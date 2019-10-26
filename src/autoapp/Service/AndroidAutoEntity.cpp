@@ -188,14 +188,14 @@ void AndroidAutoEntity::onServiceDiscoveryRequest(const aasdk::proto::messages::
     aasdk::proto::messages::ServiceDiscoveryResponse serviceDiscoveryResponse;
     serviceDiscoveryResponse.mutable_channels()->Reserve(256);
     serviceDiscoveryResponse.set_head_unit_name(configuration_->getHeadUnitName());
-    serviceDiscoveryResponse.set_car_model("Universal");
-    serviceDiscoveryResponse.set_car_year("2018");
-    serviceDiscoveryResponse.set_car_serial("20180301");
+    serviceDiscoveryResponse.set_car_model(configuration_->getCarModel());
+    serviceDiscoveryResponse.set_car_year(configuration_->getCarYear());
+    serviceDiscoveryResponse.set_car_serial(configuration_->getCarSerial());
     serviceDiscoveryResponse.set_left_hand_drive_vehicle(configuration_->getHandednessOfTrafficType() == configuration::HandednessOfTrafficType::LEFT_HAND_DRIVE);
     serviceDiscoveryResponse.set_headunit_manufacturer(configuration_->getHeadUnitManufacturer());
     serviceDiscoveryResponse.set_headunit_model(configuration_->getHeadUnitModel());
-    serviceDiscoveryResponse.set_sw_build("1");
-    serviceDiscoveryResponse.set_sw_version("1.0");
+    serviceDiscoveryResponse.set_sw_build(configuration_->getSwBuild());
+    serviceDiscoveryResponse.set_sw_version(configuration_->getSwVersion());
     serviceDiscoveryResponse.set_can_play_native_media_during_vr(false);
     serviceDiscoveryResponse.set_hide_clock(!configuration_->showClock());
 

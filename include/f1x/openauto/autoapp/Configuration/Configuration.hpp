@@ -115,6 +115,13 @@ public:
     std::string getHeadUnitManufacturer() const override;
     std::string getHeadUnitModel() const override;
 
+    std::string getCarModel() const override;
+    std::string getCarYear() const override;
+    std::string getCarSerial() const override;
+
+    std::string getSwBuild() const override;
+    std::string getSwVersion() const override;
+
     bool musicAudioChannelEnabled() const override;
     void setMusicAudioChannelEnabled(bool value) override;
     bool speechAudioChannelEnabled() const override;
@@ -160,6 +167,11 @@ private:
     std::string headUnitName_;
     std::string headUnitManufacturer_;
     std::string headUnitModel_;
+    std::string carModel_;
+    std::string carYear_;
+    std::string carSerial_;
+    std::string swBuild_;
+    std::string swVersion_;
     bool musicAudioChannelEnabled_;
     bool speechAudiochannelEnabled_;
     AudioOutputBackendType audioOutputBackendType_;
@@ -169,6 +181,13 @@ private:
     static const std::string cHeadUnitNameKey;
     static const std::string cHeadUnitManufacturerKey;
     static const std::string cHeadUnitModelKey;
+
+    static const std::string cCarModelKey;
+    static const std::string cCarYearKey;
+    static const std::string cCarSerialKey;
+
+    static const std::string cSwBuildKey;
+    static const std::string cSwVersionKey;
 
     static const std::string cGeneralShowClockKey;
 

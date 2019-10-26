@@ -71,6 +71,13 @@ const std::string Configuration::cHeadUnitNameKey = "OEM.HeadUnitName";
 const std::string Configuration::cHeadUnitManufacturerKey = "OEM.HeadUnitManufacturer";
 const std::string Configuration::cHeadUnitModelKey = "OEM.HeadUnitModel";
 
+const std::string Configuration::cCarModelKey = "OEM.CarModel";
+const std::string Configuration::cCarYearKey = "OEM.CarYear";
+const std::string Configuration::cCarSerialKey = "OEM.CarSerial";
+
+const std::string Configuration::cSwBuildKey = "OEM.SwBuild";
+const std::string Configuration::cSwVersionKey = "OEM.SwVersion";
+
 const std::string Configuration::cInputEnableTouchscreenKey = "Input.EnableTouchscreen";
 const std::string Configuration::cInputEnablePlayerControlKey = "Input.EnablePlayerControl";
 const std::string Configuration::cInputPlayButtonKey = "Input.PlayButton";
@@ -146,6 +153,13 @@ void Configuration::load()
         headUnitManufacturer_ = iniConfig.get<std::string>(cHeadUnitManufacturerKey, "f1x");
         headUnitModel_ = iniConfig.get<std::string>(cHeadUnitModelKey, "OpenAuto Autoapp");
 
+        carModel_ = iniConfig.get<std::string>(cHeadUnitModelKey, "Universal");
+        carYear_ = iniConfig.get<std::string>(cHeadUnitModelKey, "2019");
+        carSerial_ = iniConfig.get<std::string>(cHeadUnitModelKey, "20191026");
+
+        swBuild_ = iniConfig.get<std::string>(cHeadUnitModelKey, "1");
+        swVersion_ = iniConfig.get<std::string>(cHeadUnitModelKey, "1.0");
+
         musicAudioChannelEnabled_ = iniConfig.get<bool>(cAudioMusicAudioChannelEnabled, true);
         speechAudiochannelEnabled_ = iniConfig.get<bool>(cAudioSpeechAudioChannelEnabled, true);
         audioOutputBackendType_ = static_cast<AudioOutputBackendType>(iniConfig.get<uint32_t>(cAudioOutputBackendType, static_cast<uint32_t>(AudioOutputBackendType::RTAUDIO)));
@@ -192,6 +206,11 @@ void Configuration::reset()
     headUnitName_ = "OpenAuto";
     headUnitManufacturer_ = "f1x";
     headUnitModel_ = "OpenAuto Autoapp";
+    carModel_ = "Universal";
+    carYear_ = "2019";
+    carSerial_ = "20191026";
+    swBuild_ = "1";
+    swVersion_ = "1.0";
     musicAudioChannelEnabled_ = true;
     speechAudiochannelEnabled_ = true;
     audioOutputBackendType_ = AudioOutputBackendType::QT;
@@ -552,6 +571,31 @@ std::string Configuration::getHeadUnitManufacturer() const
 std::string Configuration::getHeadUnitModel() const
 {
     return headUnitModel_;
+}
+
+std::string Configuration::getCarModel() const
+{
+    return carModel_;
+}
+
+std::string Configuration::getCarYear() const
+{
+    return carYear_;
+}
+
+std::string Configuration::getCarSerial() const
+{
+    return carSerial_;
+}
+
+std::string Configuration::getSwBuild() const
+{
+    return swBuild_;
+}
+
+std::string Configuration::getSwVersion() const
+{
+    return swVersion_;
 }
 
 bool Configuration::musicAudioChannelEnabled() const

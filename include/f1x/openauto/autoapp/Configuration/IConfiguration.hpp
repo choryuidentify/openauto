@@ -119,6 +119,13 @@ public:
     virtual std::string getHeadUnitManufacturer() const = 0;
     virtual std::string getHeadUnitModel() const = 0;
 
+    virtual std::string getCarModel() const = 0;
+    virtual std::string getCarYear() const = 0;
+    virtual std::string getCarSerial() const = 0;
+
+    virtual std::string getSwBuild() const = 0;
+    virtual std::string getSwVersion() const = 0;
+
     virtual bool musicAudioChannelEnabled() const = 0;
     virtual void setMusicAudioChannelEnabled(bool value) = 0;
     virtual bool speechAudioChannelEnabled() const = 0;
