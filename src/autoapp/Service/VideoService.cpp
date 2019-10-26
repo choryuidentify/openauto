@@ -145,6 +145,16 @@ void VideoService::onChannelError(const aasdk::error::Error& e)
     OPENAUTO_LOG(error) << "[VideoService] channel error: " << e.what();
 }
 
+void VideoService::onAVChannelStopIndication(const aasdk::proto::messages::AVChannelStopIndication& indication)
+{
+    OPENAUTO_LOG(info) << "[VideoService] stop indication"
+                       << ", channel: " << aasdk::messenger::channelIdToString(channel_->getId())
+                       << ", session: " << session_;
+    session_ = -1;
+    videoOutput_->stop();
+    channel_->receive(this->shared_from_this());
+}
+
 void VideoService::fillFeatures(aasdk::proto::messages::ServiceDiscoveryResponse& response)
 {
     OPENAUTO_LOG(info) << "[VideoService] fill features.";
