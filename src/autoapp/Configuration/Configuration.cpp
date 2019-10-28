@@ -256,6 +256,17 @@ void Configuration::save()
     iniConfig.put<bool>(cAudioMusicAudioChannelEnabled, musicAudioChannelEnabled_);
     iniConfig.put<bool>(cAudioSpeechAudioChannelEnabled, speechAudiochannelEnabled_);
     iniConfig.put<uint32_t>(cAudioOutputBackendType, static_cast<uint32_t>(audioOutputBackendType_));
+
+    iniConfig.put<std::string>(cHeadUnitNameKey, headUnitName_);
+    iniConfig.put<std::string>(cHeadUnitManufacturerKey, headUnitManufacturer_);
+    iniConfig.put<std::string>(cHeadUnitModelKey, headUnitModel_);
+
+    iniConfig.put<std::string>(cCarModelKey, carModel_);
+    iniConfig.put<std::string>(cCarYearKey, carYear_);
+    iniConfig.put<std::string>(cCarSerialKey, carSerial_);
+    
+    iniConfig.put<std::string>(cSwBuildKey, swBuild_);
+    iniConfig.put<std::string>(cSwVersionKey, swVersion_);
     boost::property_tree::ini_parser::write_ini(cConfigFileName, iniConfig);
 }
 
